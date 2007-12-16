@@ -1,0 +1,9 @@
+﻿## Interface: 20300
+## Title: Mitsugo
+## Author: Haste
+## Version: 1.1
+## X-eMail: troeks@gmail.com
+## SavedVariables: MitsugoDB
+## Notes: Backlog function for whispers.
+
+backlog.lua
