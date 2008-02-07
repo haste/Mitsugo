@@ -84,7 +84,7 @@ addon.UPDATE_CHAT_WINDOWS = function(self, event)
 				local p
 				for k, w in ipairs(sessions[1]) do
 					local player, msg, date, inform = w:match"^([^\031]+)\031([^\031]+)\031([^\031]+)\031(%d)$"
-					player = ("|Hplayer:%s|h[%1$s]"):format(player)
+					player = ("|Hplayer:%s|h[%1$s]|h"):format(player)
 					player = (inform == "1" and _G.CHAT_WHISPER_INFORM_GET or CHAT_WHISPER_GET):format(player)
 					print(("%s - %s %s"):format(date, player, msg), cf)
 
