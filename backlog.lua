@@ -39,8 +39,8 @@ local flashtab = function(cf)
 		return
 	end
 	tab:Show()
-	-- only flash for 60 sec.
-	UIFrameFlash(tab, 0.25, 0.25, 60, nil, 0.5, 0.5)
+	-- IT WILL FLASH FOREVER!
+	FCF_FlashTab(tab)
 end
 
 local db
