@@ -29,7 +29,6 @@
   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ---------------------------------------------------------------------------]]
 
-local _G = getfenv(0)
 local print = function(msg, frame) (frame or ChatFrame1):AddMessage("|cff33ff99Mitsugo:|r "..tostring(msg)) end
 
 local flashtab = function(cf)
@@ -51,7 +50,7 @@ local addon = CreateFrame"Frame"
 
 addon.ADDON_LOADED = function(self, event, addon)
 	if(addon == "Mitsugo") then
-		db = _G.MitsugoDB
+		db = MitsugoDB
 		if(not db) then
 			db = {
 				-- The number of whispers we can output at the start of a new session.
@@ -61,7 +60,7 @@ addon.ADDON_LOADED = function(self, event, addon)
 				sessions = {},
 				date = "[%d/%m %H:%M]",
 			}
-			_G.MitsugoDB = db
+			MitsugoDB = db
 		end
 
 		sessions = db.sessions
@@ -86,7 +85,7 @@ addon.UPDATE_CHAT_WINDOWS = function(self, event)
 				for k, w in ipairs(sessions[1]) do
 					local player, msg, date, inform = w:match"^([^\031]+)\031([^\031]+)\031([^\031]+)\031(%d)$"
 					player = ("|Hplayer:%s|h[%1$s]|h"):format(player)
-					player = (inform == "1" and _G.CHAT_WHISPER_INFORM_GET or CHAT_WHISPER_GET):format(player)
+					player = (inform == "1" and CHAT_WHISPER_INFORM_GET or CHAT_WHISPER_GET):format(player)
 					print(("%s - %s %s"):format(date, player, msg), cf)
 
 					p = true
