@@ -40,6 +40,7 @@ local flashtab = function(cf)
 	end
 	tab:Show()
 	-- IT WILL FLASH FOREVER!
+	-- no it won't!
 	FCF_FlashTab(tab)
 end
 
