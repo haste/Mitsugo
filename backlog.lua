@@ -31,18 +31,6 @@
 
 local print = function(msg, frame) (frame or ChatFrame1):AddMessage("|cff33ff99Mitsugo:|r "..tostring(msg)) end
 
-local flashtab = function(cf)
-	local tab = _G[cf:GetName().."TabFlash"]
-
-	if(not cf.isDocked or (cf == SELECTED_DOCK_FRAME) or UIFrameIsFlashing(tab)) then
-		return
-	end
-	tab:Show()
-	-- IT WILL FLASH FOREVER!
-	-- no it won't!
-	FCF_FlashTab(tab)
-end
-
 local db
 local session
 local sessions
@@ -91,7 +79,7 @@ addon.UPDATE_CHAT_WINDOWS = function(self, event)
 					p = true
 				end
 
-				if(p) then flashtab(cf) end
+				if(p) then FCF_FlashTab(cf) end
 			end
 		end
 	end
